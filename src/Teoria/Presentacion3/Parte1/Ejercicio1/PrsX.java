@@ -11,7 +11,7 @@ public class PrsX extends Thread{
 
     public void run(){
         while(true){
-            int temp = leerValor();
+            int temp = 5; // habria que poner leerValor() que seria una funcion que nos tendrian que dar pero pongo 5 para que no de error
             try {
                 sis.escribir(temp, id);
                 sleep(1000 + (int) (Math.random() * 1000));

@@ -11,9 +11,9 @@ public class Ventana extends JFrame {
     public Ventana() {
         initComponents();
         setVisible(true);
-        new Sesion1.Ejemplo3.Pintor(jButton1).start();
-        new Sesion1.Ejemplo3.Pintor(jButton2).start();
-        new Sesion1.Ejemplo3.Pintor(jButton3).start();
+        new Pintor(jButton1).start();
+        new Pintor(jButton2).start();
+        new Pintor(jButton3).start();
         new Pintor(jButton4).start();
     }
 
