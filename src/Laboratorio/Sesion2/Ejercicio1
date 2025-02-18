@@ -1,0 +1,5 @@
+Cuando lo ejecutas no te dan los resultados porque no hay exclusión mutua.
+
+En el ejemplo 1 no hay problema a la hora de obtener el resultado ya que solo hay un hilo, lo que hace que sea más lento
+
+En el ejemplo 2 se utilizan varios hilos haciendo que sea más rápido, pero hay condiciones de carrera.
