@@ -36,7 +36,7 @@ public class Tienda {
         } catch (Exception e){}
     }
 
-    public void pagar(int prendas, int id){
+    public void pagar(int id, int prendas){
         caja.lock();
         try {
             esperar(prendas);
