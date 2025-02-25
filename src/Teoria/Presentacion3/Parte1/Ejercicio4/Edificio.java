@@ -22,7 +22,7 @@ public class Edificio {
         cajetin.lock();
         try{
             numeroTrabajadores++;
-            System.out.println("Trabajador ID: " + iD + ", Hora de entrada: " + new Date().getTime() + ". Trabajadores fichados: " + numeroTrabajadores);
+            System.out.println("Trabajador ID: " + iD + ", Hora de entrada: " + new Date() + ". Trabajadores fichados: " + numeroTrabajadores);
         } finally {
             cajetin.unlock();
         }
@@ -50,7 +50,7 @@ public class Edificio {
         cajetin.lock();
         try{
             numeroTrabajadores--;
-            System.out.println("Trabajador ID: " + iD + ", Hora de salida: " + new Date().getTime() + ". Trabajadores dentro: " + numeroTrabajadores);
+            System.out.println("Trabajador ID: " + iD + ", Hora de salida: " + new Date() + ". Trabajadores dentro: " + numeroTrabajadores);
         } finally {
             cajetin.unlock();
         }
