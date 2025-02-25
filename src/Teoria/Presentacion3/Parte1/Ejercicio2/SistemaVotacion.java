@@ -4,31 +4,48 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class SistemaVotacion {
-    private static int[] candidatos = new int[3];
-    static Lock lock = new ReentrantLock();
+    private int votos1, votos2, votos3 = 0;
+    private Lock cerrojo = new ReentrantLock();
 
-    public static void votar(int estudianteID){
-        int candidato = (int) (Math.random() * 3);
-        lock.lock();
+    public SistemaVotacion() {}
+
+    public void votar(int voto){
+        cerrojo.lock();
 
         try {
-            candidatos[candidato]++;
-            System.out.println("Estudiante " + estudianteID + " votó al candidato: " + (candidato + 1) + ". Recuento actual: ");
-            for (int i = 0; i < candidatos.length; i++) {
-                System.out.println("Candidato " + (i + 1) + ": " + candidatos[i]);
+            switch (voto){
+                case 1:
+                    votos1 ++;
+                case 2:
+                    votos2 ++;
+                case 3:
+                    votos3 ++;
             }
-        } finally {
-            lock.unlock();
+            if (votos1 + votos2 + votos3 == 80){
+                resultado();
+            }
+        } catch (Exception e) {}
+        finally {
+            cerrojo.unlock();
         }
     }
 
-    public static void anunciarGanador(){
-        int ganador = 0;
-        for (int i = 1; i < candidatos.length; i++) {
-            if (candidatos[i] > candidatos[ganador]) {
-                ganador = i;
-            }
+    public void resultado(){
+        System.out.println("Recuento de votos");
+        System.out.println("Votos candidato 1: " + votos1);
+        System.out.println("Votos candidato 2: " + votos2);
+        System.out.println("Votos candidato 3: " + votos3);
+
+        int ganador = Math.max(votos1, Math.max(votos2, votos3));
+
+        if ((ganador == votos1 && ganador ==votos2 || ganador == votos1 && ganador == votos3 || ganador == votos2 && ganador == votos3)){
+            System.out.println(("Empate"));
+        } else if (ganador == votos1) {
+            System.out.println("El ganador es el candidato 1");
+        } else if (ganador == votos2) {
+            System.out.println("El ganador es el candidato 2");
+        } else if (ganador == votos3) {
+            System.out.println("El ganador es el candidato 3");
         }
-        System.out.println("El candidato " + (ganador + 1) + "ha sido seleccionado como delegado");
     }
 }
