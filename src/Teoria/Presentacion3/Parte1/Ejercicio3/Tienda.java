@@ -26,8 +26,10 @@ public class Tienda {
         try{
             for (int i = 0; i < probadores.size(); i++){
                 try {
-                    probadores.get(i).tryLock();
-                    esperar(prendas * 2);
+                    if (probadores.get(i).tryLock()){
+                        System.out.println("El cliente " + id + " ha accedido al probador " + i + " con " + prendas + " prendas");
+                        esperar(prendas * 2);
+                    }
                 } catch (Exception e){
                 } finally {
                     probadores.get(i).unlock();
@@ -39,6 +41,7 @@ public class Tienda {
     public void pagar(int id, int prendas){
         caja.lock();
         try {
+            System.out.println("El cliente " + id + " ha comprado " + prendas + " prendas");
             esperar(prendas);
         } catch (Exception e){
         } finally {
