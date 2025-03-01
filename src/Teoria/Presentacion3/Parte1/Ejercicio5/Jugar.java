@@ -22,7 +22,7 @@ public class Jugar {
 
     public void intentarMontar(int id) {
         int tiempoEspera = 5 + (int) (Math.random() * 6);
-        long tiempoLimite = new Date().getTime() + (tiempoEspera * 1000);
+        long tiempoLimite = new Date().getTime() + tiempoEspera;
 
         boolean montado = false;
         while (new Date().getTime() < tiempoLimite && !montado) {
