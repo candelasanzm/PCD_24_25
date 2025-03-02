@@ -41,7 +41,6 @@ public class Discoteca {
                     mayoresEdad++;
                 }
                 System.out.println("Persona con id " + id + " de edad " + edad + " entra en la discoteca. Cantidad de personas mayores de edad dentro: " + mayoresEdad + ". Cantidad de personas menores de edad dentro: " + menoresEdad);
-                esperar(2);
             } else {
                 if (edad < 18) {
                     menoresEdad--;
@@ -49,8 +48,8 @@ public class Discoteca {
                     mayoresEdad--;
                 }
                 System.out.println("Persona con id " + id + " de edad " + edad + " sale de la discoteca. Cantidad de personas mayores de edad dentro: " + mayoresEdad + ". Cantidad de personas menores de edad dentro: " + menoresEdad);
-                esperar(2);
             }
+            esperar(2);
         } catch (Exception e) {
         } finally {
             puerta.unlock();
@@ -58,8 +57,9 @@ public class Discoteca {
     }
 
     public void barra(int barraId, int id) {
+        long tiempoInicio = new Date().getTime();
+        long tiempoLimite = tiempoInicio + 5000;
         boolean atendido = false;
-        long tiempoLimite = new Date().getTime() + 5000;
 
         while (new Date().getTime() < tiempoLimite && !atendido) {
             for (int i = 0; i < barra.size(); i++) {
@@ -76,30 +76,35 @@ public class Discoteca {
                         esperar(5);
                         break;
                     } catch (Exception e) {
+                        e.printStackTrace();
                     } finally {
                         barra.get(i).unlock();
                     }
                 }
             }
-
-            if (!atendido) {
-                System.out.println("El usuario " + id + " ha alcanzado el tiempo limite de espera en la barra y se va");
-            }
+        }
+        if (!atendido) {
+            System.out.println("El usuario " + id + " ha alcanzado el tiempo limite de espera en la barra y se va");
         }
     }
 
     public void servicio(int id){
+        boolean usado = false;
         try {
             for (int i = 0; i < servicios.size(); i++) {
                 try {
                     if (servicios.get(i).tryLock()) {
-                        System.out.println("El usuario " + id + " ha entrado al baño " + i);
+                        System.out.println("El usuario " + id + " ha entrado al baño " + (i + 1));
                         esperar(4);
+                        break;
                     }
                 } catch (Exception e) {
                 } finally {
                     servicios.get(i).unlock();
                 }
+            }
+            if (!usado){
+                System.out.println("El usuario " + id + " no ha podido usar el baño porque estaban ocupados.");
             }
         } catch (Exception e) {}
     }

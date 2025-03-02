@@ -4,7 +4,7 @@ public class Fiesta {
     public static void main(String[] args) {
         Discoteca discoteca = new Discoteca();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             Personas personas = new Personas(i, discoteca);
             personas.start();
             try{
