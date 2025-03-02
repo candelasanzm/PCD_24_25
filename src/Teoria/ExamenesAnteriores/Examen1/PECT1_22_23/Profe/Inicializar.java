@@ -1,4 +1,4 @@
-package Teoria.ExamenesAnteriores.Examen1.PECT1_22_23;
+package Teoria.ExamenesAnteriores.Examen1.PECT1_22_23.Profe;
 
 import static java.lang.Thread.sleep;
 

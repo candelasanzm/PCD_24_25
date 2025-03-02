@@ -1,4 +1,4 @@
-package Teoria.ExamenesAnteriores.Examen1.PECT1_22_23;
+package Teoria.ExamenesAnteriores.Examen1.PECT1_22_23.Profe;
 
 import java.util.Date;
 import java.util.concurrent.locks.Lock;

@@ -1,4 +1,4 @@
-package Teoria.ExamenesAnteriores.Examen1.PECT1_22_23;
+package Teoria.ExamenesAnteriores.Examen1.PECT1_22_23.Profe;
 
 public class Estudiantes extends Thread{
     private int estudianteID;
