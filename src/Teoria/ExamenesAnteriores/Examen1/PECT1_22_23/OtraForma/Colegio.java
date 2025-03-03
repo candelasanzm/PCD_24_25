@@ -1,4 +1,4 @@
-package Teoria.ExamenesAnteriores.Examen1.PECT1_22_23.Yo;
+package Teoria.ExamenesAnteriores.Examen1.PECT1_22_23.OtraForma;
 
 public class Colegio {
     public static void main(String[] args) {
