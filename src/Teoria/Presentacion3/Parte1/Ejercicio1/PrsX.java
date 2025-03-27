@@ -2,7 +2,7 @@ package Teoria.Presentacion3.Parte1.Ejercicio1;
 
 public class PrsX extends Thread{
     int id;
-    Sistema sis = new Sistema();
+    Sistema sis;
 
     public PrsX(int id, Sistema sis) {
         this.id = id;
