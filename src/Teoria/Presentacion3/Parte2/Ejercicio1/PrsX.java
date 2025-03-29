@@ -1,0 +1,21 @@
+package Teoria.Presentacion3.Parte2.Ejercicio1;
+
+public class PrsX extends Thread {
+    private int id;
+    private Sistema sis;
+
+    public PrsX(int id, Sistema sis) {
+        this.id = id;
+        this.sis = sis;
+    }
+
+    public void run() {
+        try {
+            while (true) {
+                int temp = 10 + (int) (Math.random() * 15);
+                sis.escribir(temp, id);
+                sleep(1000 + (int) (Math.random() * 1000));
+            }
+        } catch (Exception e){}
+    }
+}
