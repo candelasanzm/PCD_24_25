@@ -2,7 +2,7 @@ package Teoria.ExamenesAnteriores.Examen2.Examen201516;
 
 import java.util.concurrent.Callable;
 
-public class TareaDoblado implements Callable {
+/*public class TareaDoblado implements Callable {
     private int id;
     private Prenda prenda;
 
@@ -17,4 +17,4 @@ public class TareaDoblado implements Callable {
 
         }
     }
-}
+}*/
