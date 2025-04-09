@@ -1,4 +1,4 @@
-package Teoria.Presentacion5.Ejercicio2.CyclicBarrier;
+package Teoria.Presentacion5.Ejercicio2.Exchanger;
 
 public class Main {
     public static void main(String[] args) {
