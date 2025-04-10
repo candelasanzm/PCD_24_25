@@ -20,6 +20,7 @@ public class TareaFundido implements Callable {
             System.out.println("Se ha fundido " + id);
         } catch (Exception e){
             System.out.println("Error al fundir");
+            return false;
         }
         return true;
     }

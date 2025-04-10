@@ -1,11 +1,9 @@
 package Teoria.Presentacion6.Ejercicio5;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
-/*public class Ejercicio5 {
+public class Ejercicio5 {
     public static void main(String[] args) {
         ExecutorService exFundir = Executors.newFixedThreadPool(7);
         ExecutorService exForjar = Executors.newFixedThreadPool(5);
@@ -20,14 +18,24 @@ import java.util.concurrent.Future;
         int numFundidos = 0;
         for (int i = 0; i < resultadosFundir.size(); i++){
             try{
-                if (resultadosFundir.get(i).get()){
-                    numFundidos++;
-                    if (numFundidos == 9){
-                        TareaForjado task = new TareaForjado();
-                        exForjar.submit(task);
+                if (resultadosFundir.get(i).isDone()){
+                    try {
+                        if (resultadosFundir.get(i).get()){
+                            numFundidos++;
+                            if (numFundidos == 9){
+                                TareaForjado task = new TareaForjado(numFundidos / 9);
+                                exForjar.submit(task);
+                                numFundidos = 0;
+                            }
+                        }
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
                     }
                 }
             } catch (InterruptedException e){}
         }
+
+        exFundir.shutdown();
+        exForjar.shutdown();
     }
-}*/
+}
