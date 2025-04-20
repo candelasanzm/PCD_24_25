@@ -31,10 +31,6 @@ public class Restaurante {
     }
 
     public String cogerComanda() throws InterruptedException {
-        while (numElementos == 0) {
-            System.out.println("Estanteria vacio");
-            wait();
-        }
         vacio.acquire();
         em.acquire();
         String comanda = comandas[out];

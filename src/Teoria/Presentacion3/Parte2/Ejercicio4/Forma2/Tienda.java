@@ -51,7 +51,6 @@ public class Tienda {
                 estadoProbadores.set(i, false);
                 System.out.println("El cliente " + id + " ha salido del probador " + (i + 1));
                 probadoresCondicion.signal();
-                break; // salir del bucle
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             } finally {
