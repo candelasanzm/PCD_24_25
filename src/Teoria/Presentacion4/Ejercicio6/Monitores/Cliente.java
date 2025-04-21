@@ -26,7 +26,7 @@ public class Cliente extends Thread {
 
                 if (random.nextBoolean()) {
                     tienda.pagar(id, numPrendas);
-                    Thread.sleep(numPrendas*1000);
+                    Thread.sleep(numPrendas * 1000);
                     tienda.terminarPago(id);
                 } else {
                     System.out.println("Cliente " + id + " se va sin comprar nada");

@@ -12,7 +12,7 @@ public class MainOpcional2 {
             Cliente cliente = new Cliente(taller, i);
             cliente.start();
             try {
-                sleep(500);
+                sleep(2000);
             } catch (Exception e){}
         }
     }

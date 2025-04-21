@@ -13,7 +13,7 @@ public class Pollo extends Thread{
         try {
             while (true) {
                 corral.pasear(id, true);
-                Thread.sleep((int) (Math.random() * 5000) + 5000);
+                Thread.sleep((int) (Math.random() * 5000) + 5000); // (max - min + 1) + min
                 corral.pasear(id, false);
                 int accion = (int) (Math.random() * 4) + 1;
                 switch (accion) {

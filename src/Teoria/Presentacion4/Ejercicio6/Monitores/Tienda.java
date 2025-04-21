@@ -11,7 +11,7 @@ public class Tienda {
             for (int i = 0; i < probadores.length; i++) {
                 if (!probadores[i]) {
                     probadores[i] = true;
-                    System.out.println("Cliente " + id + " entra al probador " + (i + 1));
+                    System.out.println("Cliente " + id + " entra al probador " + (i + 1) + " con " + numPrendas + " prendas");
                     return i;
                 }
             }
@@ -26,7 +26,7 @@ public class Tienda {
     }
 
     public synchronized void pagar(int id, int numPrendas) throws InterruptedException {
-        while (!caja){
+        while (caja){
             wait();
         }
         caja = false;

@@ -27,8 +27,7 @@ public class Tienda {
             caja.acquire();
             Thread.sleep(numPrendas * 1000);
             System.out.println("Cliente " + id + " paga " + numPrendas + " prendas");
-        } catch (Exception e) {}
-        finally {
+        } finally {
             caja.release();
         }
     }
