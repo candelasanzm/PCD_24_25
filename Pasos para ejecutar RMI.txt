@@ -1,0 +1,19 @@
+Pasos para ejecutar RMI:
+- Compila
+cd "C:\Users\sanzm\OneDrive\Escritorio\UAH\2º Año\2º Cuatrimestre\Programación Concurrente y Distribuida\PCD\src"
+javac -d . Laboratorio/Sesion8/Ejemplo2/*.java
+- Configurar ClassPath
+$env:CLASSPATH = "C:\Users\sanzm\OneDrive\Escritorio\UAH\2º Año\2º Cuatrimestre\Programación Concurrente y Distribuida\PCD\src"
+- Confirmar configuración Casspath
+echo $env:CLASSPATH
+- Ejecutar manualmente
+cd "C:\Archivos de programa\Java\jdk-21\bin"
+.\rmiregistry
+- Verificaste que rmiregistry está corriendo en el puerto 1099 (tiene que poner listening)
+cd "C:\Users\sanzm\OneDrive\Escritorio\UAH\2º Año\2º Cuatrimestre\Programación Concurrente y Distribuida\PCD\src"
+netstat -an | findstr 1099
+- Abre otra ventana de PowerShell y ejecuta
+java Laboratorio.Sesion8.Ejemplo2.Servidor
+- Abre otra ventana y ejecuta:
+cd "C:\Users\sanzm\OneDrive\Escritorio\UAH\2º Año\2º Cuatrimestre\Programación Concurrente y Distribuida\PCD\src"
+java Laboratorio.Sesion8.Ejemplo2.Cliente
