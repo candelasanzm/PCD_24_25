@@ -13,7 +13,18 @@ cd "C:\Archivos de programa\Java\jdk-21\bin"
 cd "C:\Users\sanzm\OneDrive\Escritorio\UAH\2º Año\2º Cuatrimestre\Programación Concurrente y Distribuida\PCD\src"
 netstat -an | findstr 1099
 - Abre otra ventana de PowerShell y ejecuta
+cd "C:\Users\sanzm\OneDrive\Escritorio\UAH\2º Año\2º Cuatrimestre\Programación Concurrente y Distribuida\PCD\src"
 java Teoria.Presentacion8.Ejercicio1.Servidor
 - Abre otra ventana y ejecuta:
 cd "C:\Users\sanzm\OneDrive\Escritorio\UAH\2º Año\2º Cuatrimestre\Programación Concurrente y Distribuida\PCD\src"
 java Laboratorio.Sesion8.Ejemplo2.Cliente
+
+SI EL PUERTO YA ESTÁ EN USO:
+- En una terminal
+cd "C:\Users\sanzm\OneDrive\Escritorio\UAH\2º Año\2º Cuatrimestre\Programación Concurrente y Distribuida\PCD\src"
+javac -d . Teoria/Presentacion8/Ejercicio5/*.java
+java Teoria.Presentacion8.Ejercicio5.Display
+
+- En otra terminal
+cd "C:\Users\sanzm\OneDrive\Escritorio\UAH\2º Año\2º Cuatrimestre\Programación Concurrente y Distribuida\PCD\src"
+java Teoria.Presentacion8.Ejercicio5.Sensores
