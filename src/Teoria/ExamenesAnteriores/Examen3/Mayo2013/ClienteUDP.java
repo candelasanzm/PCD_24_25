@@ -21,7 +21,7 @@ public class ClienteUDP {
                 byte[] buffer = pedido.getBytes();
 
                 InetAddress direccionServidor = InetAddress.getByName("127.0.0.1");
-                DatagramPacket packet = new DatagramPacket(buffer, buffer.length, direccionServidor, cantidad);
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.length, direccionServidor, 5000);
                 socket.send(packet);
 
                 byte[] respuestaBuffer = new byte[1024];

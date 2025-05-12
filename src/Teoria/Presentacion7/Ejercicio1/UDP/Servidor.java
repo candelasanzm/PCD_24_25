@@ -37,8 +37,13 @@ public class Servidor {
     }
 
     private static int calcularEdad(String fechaDeNacimiento) {
-        LocalDate nacimiento = LocalDate.parse(fechaDeNacimiento);
-        LocalDate fecha = LocalDate.now();
-        return Period.between(nacimiento, fecha).getYears();
+        try {
+            LocalDate nacimiento = LocalDate.parse(fechaDeNacimiento);
+            LocalDate fecha = LocalDate.now();
+            return Period.between(nacimiento, fecha).getYears();
+        } catch (Exception e) {
+            System.out.println("Error en calcularEdad: " + e.getMessage());
+            return 0;
+        }
     }
 }

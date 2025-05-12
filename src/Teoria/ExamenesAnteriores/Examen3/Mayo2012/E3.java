@@ -36,7 +36,7 @@ public class E3 {
 
             for (int i = 0; i < numeros.size(); i++) {
                 buffer = String.valueOf(numeros.get(i)).getBytes();
-                packet = new DatagramPacket(buffer, buffer.length, destino, numeros.get(i));
+                packet = new DatagramPacket(buffer, buffer.length, destino, 3000);
                 socketE1.send(packet);
             }
 

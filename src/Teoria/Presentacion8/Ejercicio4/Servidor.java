@@ -11,8 +11,7 @@ public class Servidor {
             ServicioSupermercadoRMI servicioSupermercadoRMI = new ServicioSupermercadoRMI();
 
             Registry registry = LocateRegistry.createRegistry(1099);
-
-            Naming.rebind("//127.0.0.1/ServicioSupermercadoRMI", servicioSupermercadoRMI);
+            registry.rebind("//127.0.0.1/ServicioSupermercadoRMI", servicioSupermercadoRMI);
             System.out.println("Servidor Arrandado");
 
         } catch (IOException e){
