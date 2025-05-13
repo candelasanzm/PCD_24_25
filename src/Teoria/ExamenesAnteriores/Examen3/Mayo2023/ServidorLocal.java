@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class Servidor {
+public class ServidorLocal {
     public static void main(String[] args) {
         try {
             SistemaValoraciones sistemaValoraciones = new SistemaValoraciones();
 
             Registry registry = LocateRegistry.createRegistry(1099);
-            registry.rebind("//127.0.0.1/SistemaValoraciones", sistemaValoraciones);
+            registry.rebind("SistemaValoraciones", sistemaValoraciones);
 
             System.out.println("Servidor Arrancado");
         } catch (IOException e){

@@ -18,8 +18,11 @@ public class SistemaValoraciones extends UnicastRemoteObject implements Valoraci
         try {
             Socket socket = new Socket(InetAddress.getLocalHost(), 5000);
             DataOutputStream salida = new DataOutputStream(socket.getOutputStream());
+
             String mensaje = ipCliente + ":" + puntuacion + ":" + comentario + ":" + idTransaccion;
             salida.writeUTF(mensaje);
+
+            salida.close();
             return true;
         } catch (IOException e) {
             System.out.println("Error al enviar la valoración: " + e.getMessage());
