@@ -23,6 +23,7 @@ public class SistemaValoraciones extends UnicastRemoteObject implements Valoraci
             salida.writeUTF(mensaje);
 
             salida.close();
+            socket.close();
             return true;
         } catch (IOException e) {
             System.out.println("Error al enviar la valoración: " + e.getMessage());
