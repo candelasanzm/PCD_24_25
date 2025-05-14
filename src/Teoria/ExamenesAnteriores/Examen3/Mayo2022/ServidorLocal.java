@@ -34,6 +34,8 @@ public class ServidorLocal {
             }
         } catch (IOException e) {
             System.out.println("Error en el Servidor Local: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error en el Servidor Local: " + e.getMessage());
         }
     }
 }
