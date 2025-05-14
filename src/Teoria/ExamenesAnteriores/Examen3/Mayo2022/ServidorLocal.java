@@ -3,6 +3,7 @@ package Teoria.ExamenesAnteriores.Examen3.Mayo2022;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
@@ -12,10 +13,7 @@ public class ServidorLocal {
             DatagramSocket socket = new DatagramSocket(5000);
             byte[] buffer = new byte[1024];
 
-            AccionesServicioRMI accionesServicioRMI = new AccionesServicioRMI();
-
-            Registry registry = LocateRegistry.createRegistry(1100);
-            registry.rebind("ServidorCentral", accionesServicioRMI);
+            ServidoresRMI servidoresRMI = (ServidoresRMI) Naming.lookup("ServidorCentral");
 
             while (true) {
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
@@ -28,11 +26,11 @@ public class ServidorLocal {
 
                 System.out.println(packet.getAddress().getHostAddress() + ". Sensor: " + sensorID + ". Valor: " + valor);
 
-                if (sensorID == 5 && valor == 1) {
-                    accionesServicioRMI.llamarBomberos(packet.getAddress().getHostAddress());
-                }
+                servidoresRMI.guardarEstado(packet.getAddress().getHostAddress(), sensorID, valor);
 
-                accionesServicioRMI.guardarEstado(packet.getAddress().getHostAddress(), sensorID, valor);
+                if (sensorID == 5 && valor == 1) {
+                    servidoresRMI.llamarBomberos(packet.getAddress().getHostAddress());
+                }
             }
         } catch (IOException e) {
             System.out.println("Error en el Servidor Local: " + e.getMessage());

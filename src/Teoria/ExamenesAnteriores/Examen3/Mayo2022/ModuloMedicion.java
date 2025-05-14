@@ -16,7 +16,7 @@ public class ModuloMedicion {
             while (true){
                 for (int i = 1; i < 6; i++){
                     int valorSensor = leerSensor(i);
-                    String mensaje = "Valor del sensor " + i + ": " + valorSensor;
+                    String mensaje = i + ": " + valorSensor;
                     byte[] buffer = mensaje.getBytes();
 
                     DatagramPacket packet = new DatagramPacket(buffer, buffer.length, direccionServidorLocal, puerto);
